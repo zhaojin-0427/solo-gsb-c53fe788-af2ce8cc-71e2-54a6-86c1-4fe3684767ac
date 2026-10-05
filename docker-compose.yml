@@ -1,0 +1,11 @@
+services:
+  adjudicator:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - build-data:/data   # SQLite 状态持久化，重启后裁决一致
+    restart: unless-stopped
+
+volumes:
+  build-data:
